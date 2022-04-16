@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express');
 const app = require('express')()
 const http = require('http').createServer(app)
@@ -6,12 +8,17 @@ const PORT = 3000;
 
 app.use(express.json());
 
+const HOST = process.env.HOST;
+const USER = process.env.USER;
+const PASSWORD = process.env.PASSWORD;
+const DATABASE = process.env.DATABASE;
+
 /* Create Database connection. */
 const db = mysql.createConnection({
-    host: "",
-    user: "",
-    password: "",
-    database: "",
+    host: HOST,
+    user: USER,
+    password: PASSWORD,
+    database: DATABASE,
 });
 
 /* Connect to MySQL. */
