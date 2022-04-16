@@ -57,7 +57,7 @@ app.get("/employees", (req, res) => {
     });
 });
 
-/* Get a employee. */
+/* Get an employee. */
 app.get("/employee/:id", (req, res) => {
     let sql = `SELECT * FROM employee WHERE id = ${req.params.id}`;
     db.query(sql, function (err, result) {
@@ -68,7 +68,7 @@ app.get("/employee/:id", (req, res) => {
     });
 });
 
-/* Update a employee. */
+/* Update an employee. */
 app.put("/employee/update/:id", (req, res) => {
     let post = { name: req.body.name, designation: req.body.designation };
     let sql = `UPDATE employee SET name = '${post.name}', designation = '${post.designation}' WHERE id = ${req.params.id}`;
@@ -80,7 +80,7 @@ app.put("/employee/update/:id", (req, res) => {
     });
 });
 
-/* Delete a employee. */
+/* Delete an employee. */
 app.delete("/employee/delete/:id", (req, res) => {
     let sql = `DELETE FROM employee WHERE id = ${req.params.id}`;
     db.query(sql, (err) => {
